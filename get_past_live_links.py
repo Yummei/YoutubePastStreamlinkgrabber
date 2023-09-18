@@ -24,12 +24,15 @@ def get_past_live_links(api_key, channel_id):
     return links
 
 api_key = 'YOUR_API_KEY'  # Replace with your API key
-channel_id = 'UCt9H_RpQzhxzlyBxFqrdHqA'  # This is FUWAMOCO Ch. hololive-EN's channel ID
+channel_id = 'UCt9H_RpQzhxzlyBxFqrdHqA'  # Channel ID
+
+# Define file path for C:\Downloads
+file_path = r'C:\Downloads\past_live_links.txt'
 
 links = get_past_live_links(api_key, channel_id)
 
-with open(r'D:\Archive\Links\past_live_links.txt', 'w') as file:
+with open(file_path, 'w') as file:
     for link in links:
         file.write(link + '\n')
 
-print(f'Found {len(links)} past live links. Saved to D:\\Archive\\Links\\past_live_links.txt')
+print(f'Found {len(links)} past live links. Saved to {file_path}')
